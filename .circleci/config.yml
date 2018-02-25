@@ -22,19 +22,12 @@ jobs:
 
 workflows:
   version: 2
-  build:
-    filters:
-      branches:
-        ignore: /^(master|develop)$/
-    jobs:
-      - build:
-  build-deploy:
-    filters:
-      branches:
-        ignore: /.*/
-        only: /^(master|develop)$/
+  workflow:
     jobs:
       - build
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: /^(master|develop)$/
