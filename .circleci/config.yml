@@ -30,6 +30,7 @@ workflows:
               only: /.*/
   deploy:
     jobs:
+      - build:
       - deploy:
           requires:
             - build
