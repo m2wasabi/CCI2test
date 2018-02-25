@@ -27,8 +27,8 @@ workflows:
       - build:
           filters:
             branches:
-              only: /.*/
-  deploy:
+              ignore: /^(master|develop)$/
+  build-deploy:
     jobs:
       - build
       - deploy:
